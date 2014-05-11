@@ -1,7 +1,11 @@
-# reading data in
+# need headers and data for first and second day of Feb 2007
 hpc = read.csv(pipe('egrep \'^Date|^[1-2]/2/2007\' household_power_consumption.txt'), header=T, sep=';')
+
+# need formatted date for X-axis of plots
 hpc$DateTime = as.POSIXct(paste(hpc$Date, hpc$Time), format="%d/%m/%Y %H:%M:%S")
-attach(hpc)
+
+attach(hpc)  # this line may be deprecated
+
 png('plot4.png',width=480,height=480)
 par(mfrow = c(2,2))
 

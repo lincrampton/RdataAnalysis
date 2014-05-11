@@ -1,0 +1,25 @@
+Coursera Johns Hopkins Exploratory Data Analysis, Assignment 1, Plot 2
+========================================================
+
+The purpose of this program is completion of an assignment in Coursera-Johns Hopkins 'Exloratory Data Analysis'.  The rubric is located at https://class.coursera.org/exdata-002/human_grading/view/courses/972082/assessments/3/submissions.  
+
+This is an R Markdown document. Knitr was run on this document within RStudio to create the file, 'plot2.html', documenting the plot generation process.
+
+Environment:  	R version: 3.0.2 Frisbee Sailing; RStudio version: 0.98.501; OS/HW: Ubuntu 14.04 LTS on 65-bit Intel Core.  
+
+```{r}
+Sys.time()
+
+hpc = read.csv(pipe('egrep \'^Date|^[1-2]/2/2007\' household_power_consumption.txt'), header=T, sep=';') #get header and data for the first and second days of Feb 2007
+hpc$DateTime = as.POSIXct(paste(hpc$Date, hpc$Time), format="%d/%m/%Y %H:%M:%S") 	#needed for plot
+
+png('plot2.png',width=480,height=480)			
+plot(hpc$Global_active_power ~ hpc$DateTime, type='l', ylab='Global Active Power (kilowatts)',xlab='')
+dev.off()
+```
+
+Plotting to html file as a means of documenting functioning code
+```{r fig.width=7, fig.height=6}
+plot(hpc$Global_active_power ~ hpc$DateTime, type='l', ylab='Global Active Power (kilowatts)',xlab='')
+```
+
