@@ -18,7 +18,7 @@ lines(hpc$Sub_metering_3 ~ hpc$DateTime, type='l', col='Blue')
 
 legendNames=c('Sub_metering_1', 'Sub_metering_2', 'Sub_metering_3')
 legendColors=c('Black','Red','Blue')
-legend('topright',legend=legendNames, lty=c(1,1), lwd=2, col=legendColors, bty='n', cex=0.6::)
+legend('topright',legend=legendNames, lty=c(1,1), lwd=2, col=legendColors, bty='n', cex=0.6)
 
 #plot4
 plot(hpc$Global_reactive_power ~ hpc$DateTime, type='l', ylab='Global_reactive_power',xlab='datetime')
